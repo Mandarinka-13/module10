@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ru"> 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Интернет-магазин</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Интернет-магазин</h1>
+        <select id="category-select">
+            <option value="">Все категории</option>
+        </select>
+    </header>
+
+    <main>
+        <section id="product-container"></section>
+        <p class="moreButton"><button class="buttonMore" id="load-more-button">Загрузить еще</button></p>
+<div class="conteiner">     
+
+        <h2 class="newtovar">Добавить товар</h2>
+        <form id="add-product-form" class="form">
+            <input type="text" id="productTitle" placeholder="Название товара" required>
+            <input type="number" id="productPrice" placeholder="Цена" required>
+            <textarea id="productDescription" placeholder="Описание" required></textarea>
+            <input type="text" id="productCategory" placeholder="Категория" required>
+            <button type="submit">Добавить товар</button>
+        </form>
+</div>  
+        <div id="message"></div>
+    </main>
+
+    <script src="main.js"></script>
+</body>
+</html>
