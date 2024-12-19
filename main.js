@@ -6,6 +6,32 @@ const productContainer = document.getElementById('productContainer');
 const addProductForm = document.getElementById('addProductForm');
 const messageDiv = document.getElementById('message');
 
+async function makeApiRequest(url, options) {
+    try {
+        const response = await fetch(url, options);
+        const status = response.status;
+
+        if (status >= 200 && status < 300) {
+            showAlert('Успех! Запрос выполнен успешно.');
+        } else if (status >= 400 && status < 500) {
+            showAlert('Ошибка клиента! Код статуса: ${status}. Пожалуйста, проверьте ваш запрос.');
+        } else if (status >= 500) {
+            showAlert('Ошибка сервера! Код статуса: ${status}. Попробуйте позже.');
+        } else {
+            showAlert('Получен неожиданный статус: ${status}.');
+        }
+    } catch (error) {
+        showAlert('Ошибка! Не удалось выполнить запрос: ${error.message}');
+    }
+}
+
+function showAlert(message) {
+    alert(message); 
+}
+
+makeApiRequest('https://api.example.com/data', { method: 'GET' });
+
+
 async function fetchCategories() {
     const response = await fetch('https://fakestoreapi.com/products/categories');
     const categories = await response.json();
